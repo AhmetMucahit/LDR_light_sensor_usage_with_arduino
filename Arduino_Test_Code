@@ -1,0 +1,25 @@
+/*This code is a test code for the components. By this application, firstly we can understand 
+that the components have or not any problem, they are working functionally and then we see that 
+which values that is coming from the LED should we see on the Serial Monitor (LDR sensor).*/
+
+
+#define LED_PIN 11  // Digital pin number for LED control is 11
+int sensPin = A1; // Analog pin number for LDR Sensor
+int sensValue;  
+
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT); // Activate (assign) the pin for LED
+  Serial.begin(9600);
+  pinMode(sensPin, INPUT); // We activate (assign) the pin for LDR SENSOR
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH); // ON Mode for LED
+  delay(200);
+  //digitalWrite(LED_PIN, LOW); // OFF Mode for LED
+  //delay(200);
+  sensValue = analogRead(sensPin); // Reading the analog values that come from SENSOR
+  Serial.println(sensValue); // Printing the analog values that come from SENSOR
+
+}
